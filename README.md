@@ -45,7 +45,7 @@ File format identification
     fmti_file只返回文件类型的id
     如果想获得更详细的信息需要访问FMTI_MATCH_RESULT对象
     
-    a) PDFMT_S对象结构：
+    a) FMTI_S对象结构：
     typedef struct
     {
         FMTI_LIB *lib;
@@ -71,5 +71,6 @@ File format identification
     fmti = fmti_init();
     fmti_load_lib(fmti, "/etc/fmti/full");
     int filetype;
-    filetype = fmti_file(fmti, "test.file");
+    FMTI_MATCH_RESULT match_res;
+    filetype = fmti_file(fmti, "test.file", &match_res);
     fmti_free(fmti);
